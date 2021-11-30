@@ -18,9 +18,10 @@ $ pip3 install --user -e gym/
 ```
 간단한 예제 실행은 다음과 같습니다.
 ```bash
-$ cd examples <br>
-$ python3 waypoint_follow.py
+$ cd examples
+$ python3 sim.py
 ```
+
 
 Docker 환경 에서도 실행가능한데 실행 방법은 다음과 같습니다. (nvidia GPU가 필요합니다.)
 ``` bash
@@ -68,16 +69,17 @@ $ roslaunch <패키지명> <주행알고리즘>.launch
 
 ## Change Map
 환경에 설정된 맵을 변경하는 방법은 다음과 같습니다.  
-1. catkin_ws/src/f1tenth_gym_ros/params.yaml 파일을 수정합니다.
+1. params.yaml 파일을 수정합니다.
 ```yaml
 ...
 map_path: '/f1tenth/maps/<바꿀 맵명>.yaml'
 ...
 ```
-2. 이후 catkin_ws경로에서 catkin_make를 실행합니다.
-```bash
-$ cd ~/catkin_ws
-$ catkin_make
+2. gym_bridge.launch 파일을 수정합니다.
+```xml
+...
+<arg name="map" default="$(find f1tenth_gym_ros)/maps/<맵파일>.yaml"/>
+...
 ```
 3. 이후 docker image를 다시 build 합니다.
 ```bash
