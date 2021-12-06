@@ -9,7 +9,7 @@ f1tenth_gym 환경은 자율주행 고속경주 상황을 실험하기 위한 �
 
 ## Quickstart
 ### System Requirements
-* Python 3.6 or later
+* Python 3.8 or later
 * llvmlite를 사용할 수 있는 환경 
 
 ### Test Environment
