@@ -31,20 +31,10 @@ $ cd examples
 $ python3 sim.py
 ```
 
-#### Selecting Algorithm Planner
-`examples/sim.py`에서 `planner` 변수를 수정함으로써 실험하고자 하는 알고리즘을 선택할 수 있습니다.
-```python
-from planner import waypoint_follow as wf
-from planner import fgm_convolution as fc
-...
+### Example
+자세한 사항은 [CSLab-GNU/f1tenth_gym](https://github.com/CSLab-GNU/f1tenth_gym) 저장소의 example에 존재하는 [README.md](https://github.com/CSLab-GNU/f1tenth_gym/blob/main/examples/README.md), [README_PARAMS.md](https://github.com/CSLab-GNU/f1tenth_gym/blob/main/examples/README_PARAMS.md) 를 참조하여 주시길 바랍니다. 
 
-    wfp = wf.PurePursuitPlanner(conf, 0.17145 + 0.15875)
-    fgp = fc.FgPlanner(conf, 0.17145 + 0.15875)
-
-    planner = fgp # or wfp
-```
-
-#### Parameters
+### Parameters
 `examples/params.yaml`에서 각각의 변수를 수정함으로써 실험하고자 하는 파라미터를 설정할 수 있습니다.
 
 ****
