@@ -114,3 +114,28 @@ $ sudo ./build_docker.sh
 맵 관련 파일은 <지도 이름>.png 와 <지도 이름>.yaml 파일 두가지가 존재하여야합니다.  
 이전 대회에서 사용되었던 맵은 [f1tenth/f1tenth_racetracks](https://github.com/f1tenth/f1tenth_racetracks) 에서 확인할 수 있습니다.
 
+#### (Optional) Launch file을 만드는 방법.
+
+차량과 F1tent Gym ROS 에서 코드를 실행하기 위한 Launch 파일은 다음과 같은 형식을 가집니다.
+
+```yaml
+<launch>
+    <include file="$(find f1tenth_gym_ros)/launch/gym_bridge_host.launch" /> // simulation 상에서 작동시키기 위해서 꼭 들어가야 하는 부분입니다. gym bridge를 같이 실행시켜줍니다.
+    <rosparam command="load" file="$(find <패키지이름>)/sim_params.yaml" /> // 외부 파라미터를 불러오기 위한 부분입니다. 
+    <node name="<노드이름>" pkg="<패키지 이름>" type="<주행코드 이름>.py" output="screen"> // 주행 코드를 실행하기 위해서 불러오는 부분입니다. 
+
+    </node>
+</launch>
+```
+#### (Optional) ROS 패키지를 추가하는 방법.
+Git에서 받은 코드를 추가하기 위해서는 다음 방법을 따릅니다.  
+1. catkin_ws/src 폴더에 해당 내용을 클론합니다.
+```bash
+cd ~/catkin_ws/src
+git clone <코드>
+```
+2. catkin_ws 폴더로 와서 catkin_make를 해줍니다.
+```bash
+cd ~/catkin_ws
+catkin_make
+```
