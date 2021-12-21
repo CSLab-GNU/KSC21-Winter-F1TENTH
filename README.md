@@ -120,16 +120,19 @@ $ sudo ./build_docker.sh
 
 ```yaml
 <launch>
-    <include file="$(find f1tenth_gym_ros)/launch/gym_bridge_host.launch" /> // simulation 상에서 작동시키기 위해서 꼭 들어가야 하는 부분입니다. gym bridge를 같이 실행시켜줍니다.
-    <rosparam command="load" file="$(find <패키지이름>)/sim_params.yaml" /> // 외부 파라미터를 불러오기 위한 부분입니다. 
-    <node name="<노드이름>" pkg="<패키지 이름>" type="<주행코드 이름>.py" output="screen"> // 주행 코드를 실행하기 위해서 불러오는 부분입니다. 
+    <include file="$(find f1tenth_gym_ros)/launch/gym_bridge_host.launch" /> 
+    // simulation 상에서 작동시키기 위해서 꼭 들어가야 하는 부분입니다. gym bridge를 같이 실행시켜줍니다.
+    <rosparam command="load" file="$(find <패키지이름>)/sim_params.yaml" /> 
+    // 외부 파라미터를 불러오기 위한 부분입니다. 
+    <node name="<노드이름>" pkg="<패키지 이름>" type="<주행코드 이름>.py" output="screen"> 
+    // 주행 코드를 실행하기 위해서 불러오는 부분입니다. 
 
     </node>
 </launch>
 ```
 #### (Optional) ROS 패키지를 추가하는 방법.
 Git에서 받은 코드를 추가하기 위해서는 다음 방법을 따릅니다.  
-1. catkin_ws/src 폴더에 해당 내용을 클론합니다.
+1. catkin_ws/src 폴더에 해당 내용을 클론 혹은 추가합니다.
 ```bash
 cd ~/catkin_ws/src
 git clone <코드>
